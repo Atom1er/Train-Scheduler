@@ -1,0 +1,44 @@
+.adminEntry{
+    background-color: beige;
+}
+
+.Train{
+    background-color: beige;
+    box-sizing: border-box !important;
+}
+#trainDisplay{
+    background-color: beige;
+}
+
+.trainSchedule{
+    background-color: #007bff;
+    border: solid 1px #007bff;
+    padding-top: 5px;
+    border-radius: 2%;
+    box-sizing: border-box !important;
+}
+
+.adminEntryHeader{
+    margin-top: 15px;
+    background-color: #007bff;
+    border: solid 1px #007bff;
+    padding-top: 5px;
+    border-radius: 2%;
+}
+h4{
+    background-color: #007bff;
+}
+
+.AminEntryElements{
+    padding: 5px;
+}
+
+.TrainElements{
+    padding: 5px;
+}
+
+
+.trainList{
+    font-weight: bold;
+    border: solid rgb(184, 182, 182) 1px;
+}
