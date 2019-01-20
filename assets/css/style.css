@@ -42,3 +42,11 @@ h4{
     font-weight: bold;
     border: solid rgb(184, 182, 182) 1px;
 }
+
+.Newtrain{
+    border: solid 1px  rgb(184, 182, 182);
+}
+
+.main{
+    margin-top: 2%
+}
