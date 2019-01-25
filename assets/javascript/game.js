@@ -7,6 +7,7 @@ var NewTrainDestination = $("#NewTrainDestination");
 var NewTrainFirstTime = $("#NewTrainFirstTime");
 var NewTrainFrequency = $("#NewTrainFrequency");
 var trainDisplay = $("#trainDisplay");
+var timeState =  $('#AMorPM').val();
 
 var newTrain;
 var newDestination;
@@ -50,12 +51,13 @@ function AddTrain() {
     // console.log(newTime);
     newFrequency = NewTrainFrequency.val();
     // console.log(newFrequency);
-
+    console.log($('#AMorPM').val());
     // FireBase data pushing
     rootRef.push({
       TrainName: newTrain,
       Destination: newDestination,
       FirstTime: newTime,
+      TimeState : timeState,
       Frequence: newFrequency
     });
     
@@ -82,6 +84,7 @@ function scheduler() {
       // console.log(Time);
       var Freq = childData.Frequence;
       // console.log(Freq); 
+      var TimeS = childData.TimeState;
 
       var name = $("<div>");
       name.attr('class', 'col-3 Newtrain');
@@ -103,13 +106,13 @@ function scheduler() {
      
       var hour = Time.slice(0, 2);
       var minute = Time.slice(2, 4);
-      var T = ""+hour+':'+minute+"";
+      var T = ""+hour+':'+minute+" "+TimeS+"" ;
       var FormatFisrtT = moment(T, "HH:mm").subtract(1, "years");
       var diffTime = moment().diff(moment(FormatFisrtT), "minutes");
       var tMemory = diffTime % Freq;
       var WaitT = Freq - tMemory;
       var CommingTrain = moment().add(WaitT, "minutes");
-      console.log("ARRIVAL TIME: " + moment(CommingTrain).format("hh:mm a"));
+      // console.log("ARRIVAL TIME: " + moment(CommingTrain).format("hh:mm a"));
       frequency.append(WaitT);
       time.append(moment(CommingTrain).format("hh:mm a"));
       trainDisplay.append(name, destination, time, frequency);

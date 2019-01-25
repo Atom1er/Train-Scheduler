@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <script defer src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
     <script defer src="./assets/javascript/game.js"></script>
+    <script src="./assets/javascript/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,15 +18,15 @@
 
 <body>
     <div class="container-fluid">
-        <div class="container">
+        <div class="container main">
             <div class="trainSchedule row">
                 <h4 class="col-12">Current Train Schedule</h4>
             </div>
             <div class="Train row">
                 <div class="col-3 trainList">Train name</div>
                 <div class="col-3 trainList">Train destination</div>
-                <div class="col-3 trainList">train first time</div>
-                <div class="col-3 trainList">train frequency</div>
+                <div class="col-3 trainList">Next Departure</div>
+                <div class="col-3 trainList">Waiting Time (min)</div>
             </div>
             <div id="trainDisplay" class="row"></div>
 
@@ -41,8 +43,18 @@
                             <input type="text" class="form-control" id="NewTrainDestination" placeholder="Destination">
                         </div>
                         <div class="form-group AminEntryElements">
-                            <label for="FirstTrain">First Train Time (HHmm - military time)</label>
-                            <input type="text" class="form-control" id="NewTrainFirstTime" placeholder="HHmm - military time">
+                            <label for="FirstTrain">First Train Time</label>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="NewTrainFirstTime" placeholder="HHmm - military time">
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <select id="AMorPM" class="form-control">
+                                    <option id="AM" selected>am</option>
+                                    <option id="PM" >pm</option>
+                                  </select>
+                                </div>
+                              </div>
                         </div>
                         <div class="form-group AminEntryElements">
                             <label for="Frequency">Frequency (min)</label>
